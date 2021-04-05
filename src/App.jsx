@@ -78,6 +78,19 @@ addStudent(studentName) {
       />
     )
 }
+
+
+if(this.state.buttonClicked === "grades") {
+  tabChoice = (
+    <Table 
+    tableNames={this.state.assignments}
+    rows={this.state.students}
+    addFunction={this.addGrade}
+    data={this.state.grades}
+    />
+  )
+}
+
     return (
       <div>
         <div className="Box Box--spacious f4">
