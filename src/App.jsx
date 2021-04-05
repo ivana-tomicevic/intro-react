@@ -32,10 +32,6 @@ class App extends React.Component {
     });
   }
 
-
-
-
-
 addStudent(studentName) {
   this.setState({
     assignments: this.state.assignments.concat(studentName)
@@ -51,8 +47,6 @@ addStudent(studentName) {
     grades[assignmentName][studentName] = score;
     this.setState({ grades: grades });
   }
-
-  
   
   
   
@@ -60,7 +54,7 @@ addStudent(studentName) {
   render() {
     let tabChoice = <div />;
 
-      
+
     if(this.state.buttonClicked === "assignments") {
       tabChoice = (
         <List 
@@ -71,6 +65,19 @@ addStudent(studentName) {
         />
       )
   }
+     
+
+
+  if(this.state.buttonClicked === "students") {
+    tabChoice = (
+      <List 
+      placeholder="Add Student..."
+      currList={this.state.students}
+      addFunction={this.state.addStudent}
+      title="Student Roster "
+      />
+    )
+}
     return (
       <div>
         <div className="Box Box--spacious f4">
