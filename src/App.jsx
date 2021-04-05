@@ -54,13 +54,13 @@ addStudent(studentName) {
   render() {
     let tabChoice = <div />;
 
-
+  
     if(this.state.buttonClicked === "assignments") {
       tabChoice = (
         <List 
         placeholder="Add Assignment..."
         currList={this.state.assignments}
-        addFunction={this.state.addAssignment}
+        addFunction={this.addAssignment}
         title="Assignments"
         />
       )
@@ -73,7 +73,7 @@ addStudent(studentName) {
       <List 
       placeholder="Add Student..."
       currList={this.state.students}
-      addFunction={this.state.addStudent}
+      addFunction={this.addStudent}
       title="Student Roster "
       />
     )
