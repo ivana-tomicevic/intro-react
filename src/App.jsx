@@ -1,5 +1,6 @@
 import React from "react";
 import Table from "./Table";
+import List from "./List";
 
 class App extends React.Component {
   constructor(props) {
@@ -7,12 +8,15 @@ class App extends React.Component {
 
     this.state = {
       buttonClicked: "",
+      students: [],
       assignments: [],
       grades: {}
     };
 
     this.handleButtonClicked = this.handleButtonClicked.bind(this);
     this.addAssignment = this.addAssignment.bind(this);
+   
+    this.addStudent = this.addStudent.bind(this);
     this.addGrade = this.addGrade.bind(this);
   }
 
@@ -28,6 +32,11 @@ class App extends React.Component {
     });
   }
 
+addStudent(studentName) {
+  this.setState({
+    assignments: this.state.assignments.concat(studentName)
+  })
+}
   addGrade(assignment, student, score) {
     let grades = this.state.grades;
     let assignmentName = assignment;
@@ -38,9 +47,49 @@ class App extends React.Component {
     grades[assignmentName][studentName] = score;
     this.setState({ grades: grades });
   }
-
+  
+  
+  
+  
   render() {
     let tabChoice = <div />;
+
+  
+    if(this.state.buttonClicked === "assignments") {
+      tabChoice = (
+        <List 
+        placeholder="Add Assignment..."
+        currList={this.state.assignments}
+        addFunction={this.addAssignment}
+        title="Assignments"
+        />
+      )
+  }
+     
+
+
+  if(this.state.buttonClicked === "students") {
+    tabChoice = (
+      <List 
+      placeholder="Add Student..."
+      currList={this.state.students}
+      addFunction={this.addStudent}
+      title="Student Roster "
+      />
+    )
+}
+
+
+if(this.state.buttonClicked === "grades") {
+  tabChoice = (
+    <Table 
+    tableNames={this.state.assignments}
+    rows={this.state.students}
+    addFunction={this.addGrade}
+    data={this.state.grades}
+    />
+  )
+}
 
     return (
       <div>
