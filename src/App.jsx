@@ -43,6 +43,15 @@ class App extends React.Component {
   render() {
     let tabChoice = <div />;
 
+      if(this.state.buttonClicked === "assignments")
+      tabChoice = (
+        <List 
+        placeholder="Add assignment"
+        currList={this.state.assignments}
+        addFunction={this.addAssignment}
+        title="Assignments"
+        />
+      )
     return (
       <div>
         <div className="Box Box--spacious f4">
