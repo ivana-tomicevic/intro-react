@@ -15,8 +15,8 @@ class App extends React.Component {
 
     this.handleButtonClicked = this.handleButtonClicked.bind(this);
     this.addAssignment = this.addAssignment.bind(this);
-    /*nesto*/
-    this.addStudent = this.addStudent.bind(this)
+   
+    this.addStudent = this.addStudent.bind(this);
     this.addGrade = this.addGrade.bind(this);
   }
 
