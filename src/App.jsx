@@ -40,10 +40,16 @@ class App extends React.Component {
     this.setState({ grades: grades });
   }
 
+  
+  
+  
+
+
   render() {
     let tabChoice = <div />;
 
-      if(this.state.buttonClicked === "assignments")
+      
+    if(this.state.buttonClicked === "assignments")
       tabChoice = (
         <List 
         placeholder="Add assignment"
